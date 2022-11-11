@@ -16,7 +16,7 @@ public class EntityDamage implements Listener {
                 e.getEntity().setInvulnerable(true);
             }
         } catch(Exception err) {
-            Bukkit.getLogger().info("Plugin Captured some error: " + err.toString() + " Probably your config is wrong.");
+            Bukkit.getLogger().info("Plugin Captured some error: " + err + " Probably your config is wrong.");
         }
     }
 }
