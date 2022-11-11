@@ -35,7 +35,7 @@ jobs:
       
     - name: Set Release version env variable
       run: |
-        echo "RELEASE_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_E
+        echo "RELEASE_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
       
     - name: Update dependency graph
       uses: advanced-security/maven-dependency-submission-action@v1
