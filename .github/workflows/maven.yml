@@ -41,3 +41,4 @@ jobs:
         name: "${{ github.event.head_commit.message }}"
         draft: false
         prerelease: false
+
