@@ -40,8 +40,8 @@ jobs:
     - name: Create copy without version structure
       uses: canastro/copy-file-action@master
       with:
-        source: "/target/ImmortalMobs-${{ env.RELEASE_VERSION }}.jar"
-        target: "/target/ImmortalMobs.jar"
+        source: "/home/runner/work/ImmortalMobs/ImmortalMobs/target/ImmortalMobs-${{ env.RELEASE_VERSION }}.jar"
+        target: "/home/runner/work/ImmortalMobs/ImmortalMobs/target/ImmortalMobs.jar"
       
     - name: Update dependency graph
       uses: advanced-security/maven-dependency-submission-action@v1
