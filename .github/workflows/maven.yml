@@ -37,8 +37,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: '${{ github.workspace }}/target/ImmortalMobs*.jar'
-        tag_name: "${{GITHUB_SHA}}"
+        tag_name: "${{ github.head_ref }}.${{ github.sha }}"
         name: "${{ github.event.head_commit.message }}"
         draft: false
         prerelease: false
-
