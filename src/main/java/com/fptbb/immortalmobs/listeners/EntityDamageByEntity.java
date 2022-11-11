@@ -1,5 +1,6 @@
 package com.fptbb.immortalmobs.listeners;
 
+import com.fptbb.immortalmobs.ImmortalMobs;
 import com.fptbb.immortalmobs.files.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -10,7 +11,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.plugin.Plugin;
 
 import java.util.Objects;
 
@@ -32,9 +32,7 @@ public class EntityDamageByEntity implements Listener {
                             if(config.getBoolean("Announce.Private")){
                                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getString("Messages.PrivateAnnounce")).replace("%player%", p.getName() )));
                             }
-                            Plugin plugin = Bukkit.getPluginManager().getPlugin("ImmortalMobs");
-                            assert plugin != null;
-                            Bukkit.getScheduler().runTaskLater(plugin, () -> {
+                            Bukkit.getScheduler().runTaskLater(ImmortalMobs.getPlugin(), () -> {
                                 if(config.getBoolean("Announce.Public")){
                                     for(Player ps : Bukkit.getOnlinePlayers()) {
                                         ps.sendMessage(ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(config.getString("Messages.AnnounceMessage")).replace("%player%", p.getName() )));
