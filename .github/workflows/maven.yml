@@ -38,10 +38,7 @@ jobs:
         echo "RELEASE_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
         
     - name: Create copy without version structure
-      uses: canastro/copy-file-action@master
-      with:
-        source: "/home/runner/work/ImmortalMobs/ImmortalMobs/target/ImmortalMobs-${{ env.RELEASE_VERSION }}.jar"
-        target: "/home/runner/work/ImmortalMobs/ImmortalMobs/target/ImmortalMobs.jar"
+      run: "mv ${{ github.workspace }}/target/ImmortalMobs-${{ env.RELEASE_VERSION }}.jar ${{ github.workspace }}/target/ImmortalMobs.jar"
       
     - name: Update dependency graph
       uses: advanced-security/maven-dependency-submission-action@v1
