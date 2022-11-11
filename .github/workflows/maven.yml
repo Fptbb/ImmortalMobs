@@ -32,8 +32,8 @@ jobs:
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v3
       with:
-        name: java-app
-        path: '${{ github.workspace }}/target/*.jar'
+        name: plugin.jar
+        path: '${{ github.workspace }}/target/ImmortalMobs*.jar'
 
       
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
