@@ -40,7 +40,7 @@ jobs:
     - name: Create copy without version structure
       uses: canastro/copy-file-action@master
       with:
-        source: "${{ github.workspace }}/target/ImmortalMobs$-{{ env.RELEASE_VERSION }}.jar"
+        source: "${{ github.workspace }}/target/ImmortalMobs-${{ env.RELEASE_VERSION }}.jar"
         target: "${{ github.workspace }}/target/ImmortalMobs.jar"
       
     - name: Update dependency graph
