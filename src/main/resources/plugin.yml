@@ -1,0 +1,16 @@
+name: ImmortalMobs
+version: '${project.version}'
+main: com.fptbb.immortalmobs.ImmortalMobs
+api-version: 1.19
+prefix: Imm
+authors: [ Fptbb ]
+description: Make possible to turn mobs immortal on demand, and punish the one's who try killing it.
+website: https://fptbb.com/
+commands:
+  immortalMobs:
+    description: Everything about ImmortalMobs.
+    usage: /<command> [info/reload]
+    aliases:
+      - imm
+    permission: immortalmobs.config
+    permission-message: You have no permission to do that.
