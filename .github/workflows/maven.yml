@@ -53,3 +53,4 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: '${{ github.workspace }}/target/ImmortalMobs*.jar'
+        tag_name: "build"
