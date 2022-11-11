@@ -21,7 +21,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: pr-mpt/actions-commit-hash@v2
       with:
           commit: "${{ github.sha }}"
           prefix: "sha-"
@@ -33,7 +32,11 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-
+      
+    - name: Set Release version env variable
+      run: |
+        echo "RELEASE_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_E
+      
     - name: Update dependency graph
       uses: advanced-security/maven-dependency-submission-action@v1
       
@@ -41,5 +44,5 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: '${{ github.workspace }}/target/ImmortalMobs*.jar'
-        tag_name: '${{ steps.commit.outputs.short }}'
+        tag_name: '${{ env.RELEASE_VERSION }}'
         name: '${{ github.event.head_commit.message }}'
